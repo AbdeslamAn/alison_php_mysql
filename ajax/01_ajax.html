@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax</title>
+</head>
+<body>
+    <button onclick="getrepos()">Get Repos</button>
+    <div id="daten"></div>
+    <script>
+        // Make function to do thr Request
+        function getrepos() {
+            // Assign the Request object to  Variable
+            var myrequest = new XMLHttpRequest();
+            // on Ready State Change => Function Called when Ready State Change
+            myrequest.readyStatechange = function(){
+                /*
+                    Ready State => The status of the request
+                    [0] request not initialized
+                    [1] server connection established
+                    [2] request recieved
+                    [3] processing request
+                    [4] request is finished and request is ready
+
+                    status => response status code
+                    [200] ok
+                */
+               
+                if (this.readystate === 4 && this.status === 200) {
+                console.log(this.responseText);
+            }
+            }
+
+        myrequest.open("GET","daten.txt",true)
+            
+        myrequest.send();
+            
+        }
+    </script>
+</body>
+</html>
