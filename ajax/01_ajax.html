@@ -14,7 +14,7 @@
             // Assign the Request object to  Variable
             var myrequest = new XMLHttpRequest();
             // on Ready State Change => Function Called when Ready State Change
-            myrequest.readyStatechange = function(){
+            myrequest.onreadystatechange = function(){
                 /*
                     Ready State => The status of the request
                     [0] request not initialized
@@ -27,11 +27,12 @@
                     [200] ok
                 */
                
-                if (this.readystate === 4 && this.status === 200) {
+                if (this.readyState === 4 && this.status === 200) {
                 console.log(this.responseText);
+                //document.getElementById("daten").innerText = this.responseText;
             }
             }
-
+        // XMLHttpRequest.open(Method, URL, Async, User , Password)
         myrequest.open("GET","daten.txt",true)
             
         myrequest.send();
