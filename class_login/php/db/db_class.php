@@ -20,7 +20,7 @@
 
                 $this->connection->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-                echo "Connected succssfull<br>";
+                //echo "Connected succssfull<br>";
             } catch (PDOException $error) {
                 echo "Connected Filed :".$error->getMessage();
             }
